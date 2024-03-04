@@ -1,0 +1,56 @@
+{% extends "ls/base.html" %}
+
+
+
+{% block content %}
+    <div class="form-container-reg">
+        <h1>Register a new customer</h1>
+        <a href="/ls">Back to Main</a><br><br> 
+        <form method="post" class="customer-form"> 
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_surname">Surname:</label>
+                {{ form.surname }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone">Phone:</label>
+                {{ form.phone }}
+            </div>
+            <div class="form-group">
+                <label for="id_dt_of_reg">Date of Registration:</label>
+                {{ form.dt_of_reg }}
+            </div>
+            <div class="form-group">
+                <label for="id_percent_of_discount">Discount:</label>
+                {{ form.percent_of_discount }}
+            </div>
+            <div class="form-group">
+                <label for="id_current_balance">Bonus Balance:</label>
+                {{ form.current_balance }}
+            </div>
+            {% comment %} <div class="form-group">
+                <label for="id_next_level">Next Level:</label>
+                {{ form.next_level }}
+            </div> {% endcomment %}
+            <div class="form-group">
+                <label for="id_shop">Shop:</label>
+                {{ form.shop }}
+            </div>
+            {% comment %} <div class="form-group">
+                <label for="id_money_spent_cus">Money Spent:</label>
+                {{ form.money_spent_cus }}
+            </div> {% endcomment %}
+            <button type="submit" id="button-reg">Register</button>
+        </form>
+    </div>
+{% endblock %}
+
+

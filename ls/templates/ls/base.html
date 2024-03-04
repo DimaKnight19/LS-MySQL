@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'ls/main.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equil="X-UA-Compatible" content="HookahMarket loyalty system">
+    {% block title %}<title>HookahMarket Loyalty System</title>{% endblock %}
+
+    {% block  head %}
+      <div id="header">
+        <img src="{% static 'ls/img/logo.png' %}" width="17%">
+  
+          
+      </div>
+    {% endblock %}
+
+    
+  </head>
+  <body style="background-image: url('{% static "ls/img/1.png" %}');
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;">
+
+    <div id="main-container">
+      <div id='content'>
+   
+        {% block content %}
+        {% endblock %}
+      </div>  
+    
+      {% block footer %}
+        <div id="footer">E-mail: Ilia@yandex.ru / telegram : +7 ... Ilia </div>
+      {% endblock %}
+      <script src="{% static 'ls/main.js' %}"></script>
+    </div>  
+    
+  
+  </body>  
+</html>
+
+
+

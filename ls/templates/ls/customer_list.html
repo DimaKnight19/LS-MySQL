@@ -1,0 +1,29 @@
+{% extends "ls/base.html" %}
+{% block content %}
+<div class="main-cotainer">
+  <div class="list">
+    <h1>These are all our customers</h1>
+    <a href="/ls">Back to Main</a><br><br> 
+
+    <form method="get" action="{% url 'ls:customer_list' %}">
+      <div class="search-input">{{ form.as_p }}</div> 
+      <button type="submit" id="search-button">Search</button>
+      
+    </form>
+
+
+
+      {%for customer in customers%}
+        <div class="customer">
+          <a href= "/ls/{{ customer.pk }}"> {{ customer.name }} {{ customer.surname }} </a> <br>
+          Phone: {{ customer.phone }} <br>
+          <hr />
+        </div>
+      {% endfor %}  
+  <div>
+</div>  
+{% endblock %}
+
+
+
+

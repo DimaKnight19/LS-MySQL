@@ -1,0 +1,92 @@
+{% extends "ls/base.html" %}
+
+{% block content %}
+
+
+        <div class="form-container-sale">
+            
+
+            <form method="post"> 
+            {% csrf_token %} 
+                <h1>These are the details of {{ customer.name }} {{ customer.surname }} </h1><br>
+                <a href="/ls">Back to Main</a><br><br>
+                
+                First and Last name: {{ customer.name }} {{ customer.surname }}</br></br>
+                
+                Was registered in: {{customer.shop}}<br><br>
+                
+                Spent in HookahMarket: {{customer.money_spent_cus}}<br><br>
+                <div id="pythonMoneySpent" data-python-money-spent="{{customer.money_spent_cus}}"></div>
+
+                Until the next discount level: <span id="nextDiscountAmount"></span><br><br>
+
+                <lable name="customer" id="customer"> Phone : {{ customer.phone }} </lable><br></br>
+
+                <lable name="percent_of_discount" id="percent_of_discount"> Discount: {{customer.percent_of_discount}} % </lable><br></br>
+                <div id="pythonPercenOfDiscount" data-python-percent-of-discount="{{customer.percent_of_discount}}"></div>
+            
+            
+                <lable name="current_balance" id="current_balance">Number of Bonuses: {{customer.current_balance}} </lable><br></br>
+                <div id="pythonData" data-mydata="{{customer.current_balance}}"></div>
+
+                <hr />
+                <h1>Make a sale</h1><br>
+            
+            
+                <label>Initial Purchase Amount:</lable>
+                <input type="text-sale" name="purchase_amount" id="purchase_amount" required></input><br><br>
+            
+            
+
+                <label name="max_number_of_bonuses" id="max_number_of_bonuses">Maximum number of bonuses that can be debited:</lable>
+                <input type="number" name="get_max_number_of_bonuses" id="get_max_number_of_bonuses" required></input> <br><br>
+
+            
+                <label>Number of bonuses to be debited: </lable>
+                <input type="number" name="the_number_of_bonuses_to_be_debited" id="the_number_of_bonuses_to_be_debited"  required></input> <br><br>
+
+
+                <label>Date of Sale </lable>
+                <input type="date" name="dt_of_sale" id="dt_of_sale" required></input></br></br>
+
+                <label>Time of Sale </lable>
+                <input type="time" name="time_of_sale" id="time_of_sale" required></input></br></br>
+
+
+                <label for="shop">Shop:</label>
+                <select name="shop_name" id="shop" required>
+                    {% for shop in shops %}
+                        <option value="{{ shop.name }}">{{ shop.name }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+
+                <label>Final price: </lable>
+                <input type="text-sale" name="sum_of_purchase" id="sum_of_purchase" required></input><br><br>
+
+            
+                
+
+                <label>Bonuses that will be accumulated after the purchase </lable>
+                <input type="text-sale" name="accumulated_bonuses" id="accumulated_bonuses" required></input><br><br>
+
+
+
+
+
+                
+                <label>Number of bonuses of {{ customer.name }} {{ customer.surname }} after the purchase: </lable>
+            
+                <input type="text-sale" name="new_bonuses" id="new_bonuses" required></input><br><br>
+                
+
+                <button type="submit" id="button-sale">Make a sale</button> 
+            </form>
+        </div>    
+
+
+
+
+{% endblock %}
+
+        

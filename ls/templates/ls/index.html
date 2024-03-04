@@ -1,0 +1,27 @@
+{% extends "ls/base.html" %}
+{% block content %}
+
+    <div  class="links-container">
+        <a href="{% url 'ls:customer_reg' %}" class="styled-button">Register a new customer</a><br><br>
+        <a href="{% url 'ls:customer_list' %}" class="styled-button">The list of customers</a>
+    </div>
+
+    <div class="customer-count">
+        <h2>The number of registered customers in the shops:</h2><br>
+        <ul>
+            {% for shop, count in customers_count.items %}
+                <li><div class="shop-name">{{ shop.name }}:</div> <div class="shop-count">{{ count }}</div></li>
+            {% endfor %}
+            
+        </ul>
+        <p class="total">
+            <div class="shop-name"><b class="total">Total: </b></div> 
+            <div class="shop-count">{{ total_customers }}</div>
+        </p>
+
+    </div>
+
+
+
+
+{% endblock %}
