@@ -24,7 +24,7 @@ class CustomerModelForm(forms.ModelForm):
         )
         widgets = {
             'dt_of_reg': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
-            'percent_of_discount': forms.NumberInput(attrs={'class': 'form-control'}),
+            'percent_of_discount': forms.NumberInput(attrs={'class': 'form-control', 'readonly': True}), #доступен только для чтения
             'current_balance': forms.NumberInput(attrs={'class': 'form-control'}),
             # 'next_level': forms.NumberInput(attrs={'class': 'form-control'}),
             'shop': forms.Select(attrs={'class': 'form-control'}), # Используем виджет Select
