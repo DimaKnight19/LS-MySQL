@@ -52,7 +52,7 @@ class SaleModelForm(forms.ModelForm):
                   'shop',
         )
         widgets = {
-            'dt_of_sale': DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'})
+            'dt_of_sale': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             
         }
 

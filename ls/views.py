@@ -104,7 +104,7 @@ def customer_detail(request, pk):
         percent_of_discount=customer.percent_of_discount
         current_balance=request.POST.get('new_bonuses')
         dt_of_sale=request.POST.get('dt_of_sale')
-        time_of_sale=request.POST.get('time_of_sale')
+        # time_of_sale=request.POST.get('time_of_sale')
         shop_name = request.POST.get('shop_name')  # Получаем имя магазина из POST-запроса
         shop = Shop.objects.get(name=shop_name) # Ищем магазин с указанным именем
 
@@ -122,7 +122,7 @@ def customer_detail(request, pk):
             current_balance=current_balance,
             
             dt_of_sale=dt_of_sale,
-            time_of_sale=time_of_sale,
+            # time_of_sale=time_of_sale,
             shop=shop) # связываем объект Sale с выбранным магазином
         
         return redirect('/ls')

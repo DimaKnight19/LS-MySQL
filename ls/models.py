@@ -63,8 +63,10 @@ class Sale(models.Model):
     percent_of_discount = models.IntegerField(verbose_name="Discount")
     current_balance = models.IntegerField(verbose_name="Bonus Balance", default=0)
 
-    dt_of_sale = models.DateField(null=True, blank=True, verbose_name="Date", default=timezone.now())
-    time_of_sale = models.TimeField(null=True, blank=True, verbose_name="Time", default=timezone.now())
+    dt_of_sale = models.DateTimeField(null=True, blank=True, verbose_name="Date", default=timezone.now)
+    # time_of_sale = models.TimeField(null=True, blank=True, verbose_name="Time", default=timezone.now())
+
+    # dt_of_reg = models.DateTimeField(null=True, blank=True, verbose_name="Date and time of reg", default=timezone.now)
     
     def save(self, *args, **kwargs):
         # Вызываем save родительского класса для сохранения Sale (часто его нужно ставить в конец)
