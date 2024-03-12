@@ -178,3 +178,19 @@ function calculateNextDiscountSpending() {
 
 var moneyNeededForNextDiscount = calculateNextDiscountSpending();
 document.getElementById("nextDiscountAmount").textContent = moneyNeededForNextDiscount;
+
+//автовыбор даты и времени
+
+window.onload = function() {
+    // Получаем текущую дату и время
+    var currentDate = new Date();
+    
+    // Преобразуем дату и время в строку формата "год-месяц-деньTчасы:минуты"
+    var currentDateTime = currentDate.toISOString().slice(0,16);
+
+    // Находим поле для ввода даты и времени
+    var dt_of_saleInput = document.getElementById('dt_of_sale');
+
+    // Устанавливаем полученное значение в поле для ввода даты и времени
+    dt_of_saleInput.value = currentDateTime;
+};
