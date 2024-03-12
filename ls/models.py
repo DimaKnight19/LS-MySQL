@@ -66,7 +66,6 @@ class Sale(models.Model):
     dt_of_sale = models.DateTimeField(null=True, blank=True, verbose_name="Date", default=timezone.now)
     # time_of_sale = models.TimeField(null=True, blank=True, verbose_name="Time", default=timezone.now())
 
-    # dt_of_reg = models.DateTimeField(null=True, blank=True, verbose_name="Date and time of reg", default=timezone.now)
     
     def save(self, *args, **kwargs):
         # Вызываем save родительского класса для сохранения Sale (часто его нужно ставить в конец)

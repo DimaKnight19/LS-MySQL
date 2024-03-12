@@ -17,6 +17,6 @@ class Customer(admin.ModelAdmin):
 @admin.register(Sale)
 class Sale(admin.ModelAdmin):
     list_display=('purchase_amount', 'accumulated_bonuses','the_number_of_bonuses_to_be_debited', 'sum_of_purchase', 'shop', 
-                  'customer', 'current_balance', 'dt_of_sale', 'time_of_sale')
-    list_filter=('customer', 'dt_of_sale', 'time_of_sale', 'shop')
+                  'customer', 'current_balance', 'dt_of_sale') # 'time_of_sale')
+    list_filter=('customer', 'dt_of_sale', 'shop') # 'time_of_sale', )
     
