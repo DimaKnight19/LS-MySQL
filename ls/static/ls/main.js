@@ -72,17 +72,17 @@ purchaseAmount.addEventListener('input', function () {
         theNumberOfBonusesToBeDebited.value="";
         sumOfPurchase.value="";
         
-        //автовыбор даты и времени
-        var currentDate = new Date();
+        // //автовыбор даты и времени
+        // var currentDate = new Date();
     
-        // Преобразуем дату и время в строку формата "год-месяц-деньTчасы:минуты"
-        var currentDateTime = currentDate.toISOString().slice(0,16);
+        // // Преобразуем дату и время в строку формата "год-месяц-деньTчасы:минуты"
+        // var currentDateTime = currentDate.toISOString().slice(0,16);
     
-        // Находим поле для ввода даты и времени
-        var dt_of_saleInput = document.getElementById('dt_of_sale');
+        // // Находим поле для ввода даты и времени
+        // var dt_of_saleInput = document.getElementById('dt_of_sale');
     
-        // Устанавливаем полученное значение в поле для ввода даты и времени
-        dt_of_saleInput.value = currentDateTime;
+        // // Устанавливаем полученное значение в поле для ввода даты и времени
+        // dt_of_saleInput.value = currentDateTime;
         
     });
 

@@ -60,15 +60,16 @@
                     {% endfor %}
                 </select><br><br>
 
+                <hr />
 
                 <label>Final price: </lable>
-                <input type="text-sale" name="sum_of_purchase" id="sum_of_purchase" required></input><br><br>
+                <input type="text-sale" name="sum_of_purchase" id="sum_of_purchase" required readonly></input><br><br>
 
             
                 
 
                 <label>Bonuses that will be accumulated after the purchase </lable>
-                <input type="text-sale" name="accumulated_bonuses" id="accumulated_bonuses" required></input><br><br>
+                <input type="text-sale" name="accumulated_bonuses" id="accumulated_bonuses" required readonly></input><br><br>
 
 
 
@@ -77,7 +78,7 @@
                 
                 <label>Number of bonuses of {{ customer.name }} {{ customer.surname }} after the purchase: </lable>
             
-                <input type="text-sale" name="new_bonuses" id="new_bonuses" required></input><br><br>
+                <input type="text-sale" name="new_bonuses" id="new_bonuses" required readonly></input><br><br>
                 
 
                 <button type="submit" id="button-sale">Make a sale</button> 
