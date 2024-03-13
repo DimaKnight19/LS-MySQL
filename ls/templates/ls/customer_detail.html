@@ -61,27 +61,30 @@
                 </select><br><br>
 
                 <hr /><br>
-
+                
                 <label>Final price: </lable>
-                <input type="text-sale" name="sum_of_purchase" id="sum_of_purchase" required readonly></input><br><br>
+                <div class="red">    
+                    <input type="text-sale" name="sum_of_purchase" id="sum_of_purchase" required readonly></input><br><br>
+                </div> 
 
             
                 
 
                 <label>Bonuses that will be accumulated after the purchase </lable>
-                <input type="text-sale" name="accumulated_bonuses" id="accumulated_bonuses" required readonly></input><br><br>
-
-
-
+                <div class="red">     
+                    <input type="text-sale" name="accumulated_bonuses" id="accumulated_bonuses" required readonly></input><br><br>
+                </div>
 
 
                 
                 <label>Number of bonuses of {{ customer.name }} {{ customer.surname }} after the purchase: </lable>
-            
-                <input type="text-sale" name="new_bonuses" id="new_bonuses" required readonly></input><br><br>
+                <div class="red"> 
+                    <input type="text-sale" name="new_bonuses" id="new_bonuses" required readonly></input><br><br>
+                </div>
                 
 
-                <button type="submit" id="button-sale">Make a sale</button> 
+                <button type="submit" id="button-sale">Make a sale</button>
+                    
             </form>
         </div>    
 

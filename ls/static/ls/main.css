@@ -425,3 +425,8 @@ input[type="text-sale"] {
 .total{
   font-weight: 900;
 }
+
+.red{
+  font-weight: 800;
+  color: red;
+}
