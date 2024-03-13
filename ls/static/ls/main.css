@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&family=Raleway:wght@300;600;900&display=swap');
 
+#red{
+  font-weight: 800;
+  color: red;
+}
 
 *{
   font-family: 'Montserrat', sans-serif;
@@ -426,7 +430,3 @@ input[type="text-sale"] {
   font-weight: 900;
 }
 
-#red{
-  font-weight: 800;
-  color: red;
-}
