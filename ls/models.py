@@ -63,23 +63,39 @@ class Sale(models.Model):
     percent_of_discount = models.IntegerField(verbose_name="Discount")
     current_balance = models.IntegerField(verbose_name="Bonus Balance", default=0)
 
-    dt_of_sale = models.DateTimeField(null=True, blank=True, verbose_name="Date and time of sale", default=timezone.now)
+    dt_of_sale = models.DateTimeField(null=True, blank=True, verbose_name="Date and time of sale")
+    
     # time_of_sale = models.TimeField(null=True, blank=True, verbose_name="Time", default=timezone.now())
 
     
-    def save(self, *args, **kwargs):
-        # Вызываем save родительского класса для сохранения Sale (часто его нужно ставить в конец)
-        super(Sale, self).save(*args, **kwargs) 
+    # def save(self, *args, **kwargs):
+    #     # Вызываем save родительского класса для сохранения Sale (часто его нужно ставить в конец)
+    #     super(Sale, self).save(*args, **kwargs) 
 
    
+    #     customer = self.customer
+    #     customer.current_balance = self.current_balance 
+
+
+    #     customer.money_spent_cus += float(self.sum_of_purchase)
+
+    #     customer.save()
+
+
+    # def __str__(self):
+    #     return f"{self.dt_of_sale}, {self.customer}"
+    
+
+    def save(self, *args, **kwargs):
+        if not self.dt_of_sale:
+            self.dt_of_sale = timezone.now()
+             
         customer = self.customer
         customer.current_balance = self.current_balance 
-
-
         customer.money_spent_cus += float(self.sum_of_purchase)
-
         customer.save()
 
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.dt_of_sale}, {self.customer}"

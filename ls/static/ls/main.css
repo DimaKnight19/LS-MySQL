@@ -429,5 +429,6 @@ input[type="text-sale"] {
 
 .red input {
   font-weight: bold;
-  color: red;
+  /* color: red; */
+  font-size: 16px;
 }

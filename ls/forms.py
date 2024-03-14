@@ -6,8 +6,45 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 
 
+# # Функция для того, чтобы можно было прописывать current_balance
+# class CustomerModelForm(forms.ModelForm):
+#     class Meta:
+#         model = Customer
+#         fields = ('name', 
+#                   'surname', 
+#                   'email', 
+#                   'phone', 
+#                   'dt_of_reg', 
+#                   'percent_of_discount', 
+#                   'current_balance', 
+#                 #   'next_level', 
+#                   'shop',
+#                 #   'money_spent_cus',
+#         )
+#         widgets = {
+#             'dt_of_reg': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
+#             'percent_of_discount': forms.NumberInput(attrs={'class': 'form-control', 'readonly': True}), #доступен только для чтения
+#             'current_balance': forms.NumberInput(attrs={'class': 'form-control'}),
+#             # 'next_level': forms.NumberInput(attrs={'class': 'form-control'}),
+#             'shop': forms.Select(attrs={'class': 'form-control'}), # Используем виджет Select
+#             # 'money_spent_cus': forms.NumberInput(attrs={'class': 'form-control'}),
+#         }
+#     def __init__(self, *args, **kwargs):
+#         super(CustomerModelForm, self).__init__(*args, **kwargs)
+#         for field_name, field in self.fields.items():
+#             field.required = True
 
+
+# # Функция для того, чтобы можно было выбирать current_balance
 class CustomerModelForm(forms.ModelForm):
+    CURRENT_BALANCE_CHOICES = (
+        (0, '0'),
+        (100, '100'),
+        (500, '500'),
+    )
+
+    current_balance = forms.ChoiceField(choices=CURRENT_BALANCE_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
+
     class Meta:
         model = Customer
         fields = ('name', 
@@ -17,18 +54,14 @@ class CustomerModelForm(forms.ModelForm):
                   'dt_of_reg', 
                   'percent_of_discount', 
                   'current_balance', 
-                #   'next_level', 
                   'shop',
-                #   'money_spent_cus',
         )
         widgets = {
             'dt_of_reg': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
-            'percent_of_discount': forms.NumberInput(attrs={'class': 'form-control', 'readonly': True}), #доступен только для чтения
-            'current_balance': forms.NumberInput(attrs={'class': 'form-control'}),
-            # 'next_level': forms.NumberInput(attrs={'class': 'form-control'}),
-            'shop': forms.Select(attrs={'class': 'form-control'}), # Используем виджет Select
-            # 'money_spent_cus': forms.NumberInput(attrs={'class': 'form-control'}),
+            'percent_of_discount': forms.NumberInput(attrs={'class': 'form-control', 'readonly': True}),
+            'shop': forms.Select(attrs={'class': 'form-control'}),
         }
+
     def __init__(self, *args, **kwargs):
         super(CustomerModelForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():

@@ -72,17 +72,6 @@ purchaseAmount.addEventListener('input', function () {
         theNumberOfBonusesToBeDebited.value="";
         sumOfPurchase.value="";
         
-        // //автовыбор даты и времени
-        // var currentDate = new Date();
-    
-        // // Преобразуем дату и время в строку формата "год-месяц-деньTчасы:минуты"
-        // var currentDateTime = currentDate.toISOString().slice(0,16);
-    
-        // // Находим поле для ввода даты и времени
-        // var dt_of_saleInput = document.getElementById('dt_of_sale');
-    
-        // // Устанавливаем полученное значение в поле для ввода даты и времени
-        // dt_of_saleInput.value = currentDateTime;
         
     });
 
@@ -191,18 +180,24 @@ function calculateNextDiscountSpending() {
 var moneyNeededForNextDiscount = calculateNextDiscountSpending();
 document.getElementById("nextDiscountAmount").textContent = moneyNeededForNextDiscount;
 
+// date/time of sale (UAE) 
 
-
-// window.onload = function() {
-//     // Получаем текущую дату и время
-//     var currentDate = new Date();
+window.onload = function() {
+    // Получаем текущую дату и время
+    var currentDate = new Date();
     
-//     // Преобразуем дату и время в строку формата "год-месяц-деньTчасы:минуты"
-//     var currentDateTime = currentDate.toISOString().slice(0,16);
+    // Получаем смещение времени для часового пояса ОАЭ (в минутах)
+    var dubaiTimezoneOffset = 240; // Время ОАЭ UTC+4 (240 минут)
 
-//     // Находим поле для ввода даты и времени
-//     var dt_of_saleInput = document.getElementById('dt_of_sale');
+    // Преобразуем текущее время во время ОАЭ
+    var dubaiDateTime = new Date(currentDate.getTime() + (dubaiTimezoneOffset * 60000)); // Умножаем смещение на 60000 миллисекунд (1 минута в миллисекундах)
 
-//     // Устанавливаем полученное значение в поле для ввода даты и времени
-//     dt_of_saleInput.value = currentDateTime;
-// };
+    // Преобразуем дату и время в строку формата "год-месяц-деньTчасы:минуты"
+    var dubaiDateTimeString = dubaiDateTime.toISOString().slice(0,16);
+
+    // Находим поле для ввода даты и времени
+    var dt_of_saleInput = document.getElementById('dt_of_sale');
+
+    // Устанавливаем полученное значение в поле для ввода даты и времени
+    dt_of_saleInput.value = dubaiDateTimeString;
+};

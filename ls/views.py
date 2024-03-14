@@ -4,6 +4,7 @@ from .models import Customer, Sale, Shop
 from .forms import CustomerModelForm, SaleModelForm, CustomerSearchForm, LoginForm #CustomerForm,
 
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -36,7 +37,7 @@ def login_view(request):
 
 
 
-
+@login_required
 def index(request):
     # Получаем список всех магазинов
     shops = Shop.objects.all()
@@ -56,7 +57,7 @@ def index(request):
 
 
 
-
+@login_required
 def customer_list(request):
     form = CustomerSearchForm(request.GET)
     customers = Customer.objects.all()
@@ -74,7 +75,7 @@ def customer_list(request):
     return render(request, "ls/customer_list.html", context)
 
 
-
+@login_required
 def customer_reg(request):
     form = CustomerModelForm()
     if request.method == "POST":
@@ -90,7 +91,7 @@ def customer_reg(request):
     return render(request, "ls/customer_reg.html", context)
 
 
-
+@login_required
 def customer_detail(request, pk):
     customer = Customer.objects.get(id=pk)
     shops = Shop.objects.all()
