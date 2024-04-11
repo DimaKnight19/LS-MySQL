@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 
+from django.core.paginator import Paginator
 
 
 
@@ -68,9 +69,16 @@ def customer_list(request):
         search_query = form.cleaned_data['search_query']
         if search_query:
             customers = customers.filter(phone__icontains=search_query)
+    
+    paginator = Paginator(customers, 50)  # Разделение списка на страницы, по 10 элементов на каждой
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
         "customers": customers,
         "form": form,
+        "page_obj": page_obj,
     }
 
     return render(request, "ls/customer_list.html", context)

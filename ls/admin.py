@@ -11,6 +11,7 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display=('name', 'surname','email', 'phone', 'dt_of_reg',
                   'percent_of_discount', 'current_balance', 'money_spent_cus', 'shop')
     list_filter=('dt_of_reg', 'percent_of_discount', 'shop')
+    search_fields = ['phone', 'name', 'surname', 'email']
 
 
     def save_model(self, request, obj, form, change):
