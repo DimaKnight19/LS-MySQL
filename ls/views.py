@@ -5,10 +5,12 @@ from .forms import CustomerModelForm, SaleModelForm, CustomerSearchForm, LoginFo
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
 
 
 
 
+@never_cache # важный декоратор, который предотвращает кэширование, чтобы обновить csrf токен. важен для login форм
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -66,7 +68,6 @@ def customer_list(request):
         search_query = form.cleaned_data['search_query']
         if search_query:
             customers = customers.filter(phone__icontains=search_query)
-
     context = {
         "customers": customers,
         "form": form,
