@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    'rangefilter',
     'ls',
 ]
 
@@ -77,6 +78,7 @@ WSGI_APPLICATION = 'hookah.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# ЭТО НЕ НУЖНО
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql', 
@@ -88,6 +90,19 @@ WSGI_APPLICATION = 'hookah.wsgi.application'
 #     }
 # }
 
+# ЭТО ДЛЯ СЕРВЕРА НУЖНЫЙ
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'DimaKnight$loyalty_system',
+#         'USER': 'DimaKnight',
+#         'PASSWORD': '223332Knightd.',
+#         'HOST': 'DimaKnight.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+#         'PORT': '3306',
+#     }
+# }
+
+# ЭТО ДЛЯ ЛОКАЛЬНОЙ РАБОТЫ
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

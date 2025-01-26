@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Customer, Sale, Shop 
+from django.contrib.admin import DateFieldListFilter
+from rangefilter.filters import DateRangeFilter
 
 
 admin.site.register(Shop)
@@ -10,7 +12,10 @@ admin.site.register(Shop)
 class CustomerAdmin(admin.ModelAdmin):
     list_display=('name', 'surname','email', 'phone', 'dt_of_reg',
                   'percent_of_discount', 'current_balance', 'money_spent_cus', 'shop')
-    list_filter=('dt_of_reg', 'percent_of_discount', 'shop')
+    list_filter=(
+        # ('dt_of_reg', DateFieldListFilter), 
+        ('dt_of_reg', DateRangeFilter),  # Фильтр с выбором диапазона дат
+        'percent_of_discount', 'shop')
     search_fields = ['phone', 'name', 'surname', 'email']
 
 

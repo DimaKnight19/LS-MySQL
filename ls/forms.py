@@ -39,8 +39,8 @@ from django.contrib.auth.models import User
 class CustomerModelForm(forms.ModelForm):
     CURRENT_BALANCE_CHOICES = (
         (0, '0'),
-        (100, '100'),
-        (500, '500'),
+        (20, '20'),
+        (50, '50'),
     )
 
     current_balance = forms.ChoiceField(choices=CURRENT_BALANCE_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
